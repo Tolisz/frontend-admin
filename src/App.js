@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal, MsalProvider} from "@azure/msal-react";
+import { useMsalAuthentication } from "@azure/msal-react";
+import { InteractionType } from '@azure/msal-browser';
+import { protectedResources } from "./authConfig";
+import { loginRequest } from "./authConfig";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// my components
+import Header from "./components/Header";
+import HomePage from "./components/HomePage";
+import { MainPage } from "./components/MainPage";
+
+const Pages = () => {
+
+	const { instance } = useMsal();
+
+	const { result } = useMsalAuthentication(InteractionType.Popup, {
+        scopes: protectedResources.apiLoanComparer.scopes.read,
+        account: instance.getActiveAccount(),
+        redirectUri: '/redirect.html'
+    });	
+
+	// const click = () => {
+	// 	instance.loginRedirect(loginRequest)
+	// }
+	
+	return (
+		<div className="Pages">
+						
+			<Header />
+
+			{/* <button onClick={click}>
+				Loguj mnie
+			</button> */}
+			
+			<Routes>
+				<Route path='/' element={<HomePage />}/>
+				<Route path='/inquiries' element={<MainPage isInquiries={true}/>} />
+				<Route path='/requests' element={<MainPage isInquiries={false}/>} />
+			</Routes>
+		</div>
+	);
+}
+
+const App = ({ instance }) => 
+{
+
+	return (
+		<MsalProvider instance={instance}>
+			<BrowserRouter>
+				<Pages/>
+			</BrowserRouter>
+		</MsalProvider>
+	);
 }
 
 export default App;

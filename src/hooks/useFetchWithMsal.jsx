@@ -22,7 +22,7 @@ const useFetchWithMsal = (msalRequest) => {
         ...msalRequest,
         account: instance.getActiveAccount(),
         redirectUri: '/'
-    });
+    });``
 
     /**
      * Execute a fetch request with the given options
