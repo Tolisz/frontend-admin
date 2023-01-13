@@ -1,0 +1,59 @@
+.MainPage-island
+{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.MainPage-whole
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    align-self: center;
+
+    border-radius: 40px;
+    padding: 1%;
+
+    margin: 5px;
+
+    flex-grow: 1;
+}
+
+.MainPage-whole-offers
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    align-self: center;
+
+    border-radius: 40px;
+    padding: 1%;
+
+    margin: 5px;
+
+    flex-grow: 4;
+}
+
+.MainPage-sortParametrs
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.MainPage-sortParametrs-element
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 7px;
+}
