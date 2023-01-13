@@ -52,6 +52,11 @@ export const MainPage = ( { isInquiries} ) => {
 		})
 	}
 
+	const SubmitParametrs = async () =>
+	{
+		console.log("Dupa");	
+	}
+
 	return (
 		<div className='MainPage-island'>
 			<div className='MainPage-whole'>				
@@ -78,32 +83,33 @@ export const MainPage = ( { isInquiries} ) => {
 					
 					<div className='MainPage-sortParametrs-element'>
 						<label>minAmount</label>
-						<input></input>
+						<input />
 					</div>
 					<div className='MainPage-sortParametrs-element'>
 						<label>maxAmount</label>
-						<input></input>
+						<input />
 					</div>
 					<div className='MainPage-sortParametrs-element'>
 						<label>minRate</label>
-						<input></input>
+						<input />
 					</div>
 					<div className='MainPage-sortParametrs-element'>
 						<label>maxRate</label>
-						<input></input>
+						<input />
 					</div>
 					<div className='MainPage-sortParametrs-element'>
 						<label>minIncomeLevel</label>
-						<input></input>
+						<input />
 					</div>
 					<div className='MainPage-sortParametrs-element'>
 						<label>maxIncomeLevel</label>
-						<input></input>
+						<input />
 					</div>
 					<div className='MainPage-sortParametrs-element'>
 						<label>PageSize</label>
-						<input></input>
+						<input />
 					</div>
+					<button onClick={SubmitParametrs}>Zastosuj</button>
 				</div>
 					
 			</div>
