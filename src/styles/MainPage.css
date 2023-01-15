@@ -57,3 +57,27 @@
     flex-direction: row;
     align-items: center;
 }
+
+.MainPage-form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.SubmitButton
+{
+    border-style: solid;
+    border-color: aliceblue;
+    border-radius: 15px;
+
+    width: 100px;
+    height: 25px;
+
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial;
+
+    margin-top: 10px;
+}

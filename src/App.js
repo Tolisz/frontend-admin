@@ -11,28 +11,11 @@ import HomePage from "./components/HomePage";
 import { MainPage } from "./components/MainPage";
 
 const Pages = () => {
-
-	const { instance } = useMsal();
-
-	const { result } = useMsalAuthentication(InteractionType.Popup, {
-        scopes: protectedResources.apiLoanComparer.scopes.read,
-        account: instance.getActiveAccount(),
-        redirectUri: '/redirect.html'
-    });	
-
-	// const click = () => {
-	// 	instance.loginRedirect(loginRequest)
-	// }
 	
 	return (
-		<div className="Pages">
-						
+		<div className="Pages">			
 			<Header />
 
-			{/* <button onClick={click}>
-				Loguj mnie
-			</button> */}
-			
 			<Routes>
 				<Route path='/' element={<HomePage />}/>
 				<Route path='/inquiries' element={<MainPage isInquiries={true}/>} />

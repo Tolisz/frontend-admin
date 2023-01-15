@@ -7,9 +7,11 @@ import useFetchWithMsal from '../hooks/useFetchWithMsal';
 
 // myComponents
 import SortingOption from './SortingOption';
+import FormInput from './FormInput';
 
 // css 
 import "../styles/MainPage.css"
+import OffersGrid from './OffersGrid';
 
 export const MainPage = ( { isInquiries} ) => {
 	
@@ -52,18 +54,113 @@ export const MainPage = ( { isInquiries} ) => {
 		})
 	}
 
-	const SubmitParametrs = async () =>
+	const [offers, setOffers] = useState([]);
+
+	const getOffers = async () => 
 	{
-		console.log("Dupa");	
+		
 	}
 
+	const SubmitParametrs = async () =>
+	{
+		
+	}
+
+	const [values, setValues] = useState({
+		State: "",
+		minAmount: NaN,
+		maxAmount: NaN,
+		minRate: NaN,
+		maxRate: NaN,
+		minIncomeLevel: NaN,
+		maxIncomeLevel: NaN,
+		Sorting: "",
+		PageNumber: NaN,
+		PageSize: NaN,
+	})
+
+	const inputs = [
+		{
+			id: 1,
+			name: "minAmount",
+			type: "number",
+			label: "minAmount",
+			placeholder: "minAmount",
+		},
+		{
+			id: 2,
+			name: "maxAmount",
+			type: "number",
+			label: "maxAmount",
+			placeholder: "maxAmount",
+		},
+		{
+			id: 3,
+			name: "minRate",
+			type: "number",
+			label: "minRate",
+			placeholder: "minRate",
+		}, 
+		{
+			id: 4,
+			name: "maxRate",
+			type: "number",
+			label: "maxRate",
+			placeholder: "maxRate",
+		},
+		{
+			id: 5,
+			name: "minIncomeLevel",
+			type: "number",
+			label: "minIncomeLevel",
+			placeholder: "minIncomeLevel",
+		},
+		{
+			id: 6,
+			name: "maxIncomeLevel",
+			type: "number",
+			label: "maxIncomeLevel",
+			placeholder: "maxIncomeLevel",
+		},
+		{
+			id: 7,
+			name: "PageSize",
+			type: "number",
+			label: "PageSize",
+			placeholder: "PageSize",
+		},
+	]
+
+
+	const onChange = (e) => {
+		
+		switch(e.target.name)
+		{
+			case "State":
+			case "Sorting":
+				setValues({...values, [e.target.name]: e.target.value});
+				break;
+			default:
+				setValues({...values, [e.target.name]: parseFloat(e.target.value, 10)});
+		}
+	}	
+	
+	console.log(values);
+	
+
+
+	
 	return (
 		<div className='MainPage-island'>
-			<div className='MainPage-whole'>				
-				<div className='MainPage-sortParametrs'>
-					<div className='MainPage-sortParametrs-element'>
-						<label> Parametr sortowania </label>
-						<select>
+			<div className='MainPage-whole'>
+
+				<h1> Parametry sortowania </h1>	
+
+				<form className='MainPage-form'>
+					<div className='FormInput'>
+						<label className='FormInput-label'> Parametr sortowania </label>
+						<select className='FormInput-input' name="Sorting" onChange={onChange}>
+							<SortingOption value={""} test={"nieustawione"}/>
 							{ sortingParametrs ? sortingParametrs.map( (param, index) => 
 							(	
 								<SortingOption key={index} value={param} text={param} />
@@ -71,50 +168,28 @@ export const MainPage = ( { isInquiries} ) => {
 						</select>
 					</div>
 
-					<div className='MainPage-sortParametrs-element'>
-						<label>State</label>
-						<select>
+					<div className='FormInput'>
+						<label className='FormInput-label'>State</label>
+						<select className='FormInput-input' name="State" onChange={onChange}>
+							<SortingOption value={""} test={"nieustawione"}/>
 							{ states ? states.map( (param, index) => 
 							(
 								<SortingOption key={index} value={param} text={param} />
 							) ) : null}
 						</select>
 					</div>
-					
-					<div className='MainPage-sortParametrs-element'>
-						<label>minAmount</label>
-						<input />
-					</div>
-					<div className='MainPage-sortParametrs-element'>
-						<label>maxAmount</label>
-						<input />
-					</div>
-					<div className='MainPage-sortParametrs-element'>
-						<label>minRate</label>
-						<input />
-					</div>
-					<div className='MainPage-sortParametrs-element'>
-						<label>maxRate</label>
-						<input />
-					</div>
-					<div className='MainPage-sortParametrs-element'>
-						<label>minIncomeLevel</label>
-						<input />
-					</div>
-					<div className='MainPage-sortParametrs-element'>
-						<label>maxIncomeLevel</label>
-						<input />
-					</div>
-					<div className='MainPage-sortParametrs-element'>
-						<label>PageSize</label>
-						<input />
-					</div>
-					<button onClick={SubmitParametrs}>Zastosuj</button>
-				</div>
-					
+
+					{inputs.map((input) => (
+                        <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange}/>
+                    ))}
+
+					<button onClick={SubmitParametrs} className='SubmitButton'>Zastosuj</button>
+				
+				</form>			
+
 			</div>
 			<div className='MainPage-whole-offers'>
-				Tu będą wyświetlane oferty 
+				<OffersGrid />
 			</div>
 		</div>
 	)
