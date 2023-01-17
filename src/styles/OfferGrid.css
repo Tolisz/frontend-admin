@@ -1,0 +1,34 @@
+.OfferGrid
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 90%;
+    padding: 5px;
+
+    border: 2px solid rgb(39, 228, 196);
+    border-radius: 20px;
+
+    margin-bottom: 5px;
+    margin-left: 0px;
+}
+
+.OfferGrid-element
+{
+    
+}
+
+.Batonik-szczegoly
+{
+    border-style: solid;
+    border-color: aliceblue;
+    border-radius: 15px;
+
+    width: 100px;
+    height: 25px;
+
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial;
+}

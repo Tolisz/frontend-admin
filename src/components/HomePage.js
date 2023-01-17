@@ -1,4 +1,4 @@
-import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal, MsalProvider} from "@azure/msal-react";
+import { AuthenticatedTemplate, UnauthenticatedTemplate} from "@azure/msal-react";
 import { useNavigate } from 'react-router-dom';
 
 // css
