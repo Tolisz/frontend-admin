@@ -149,10 +149,17 @@ const Details = () => {
                     )
                 }
 
-                <div className='Przyciski'>
-                    <button className='Przyciski-przycisk' onClick={approveResponse}> Zaakceptuj </button>
-                    <button className='Przyciski-przycisk' onClick={refuseResponse}> Odrzuć </button>
-                </div>
+
+                {
+                    resid !== "null"
+                        ?
+                    <div className='Przyciski'>
+                        <button className='Przyciski-przycisk' onClick={approveResponse}> Zaakceptuj </button>
+                        <button className='Przyciski-przycisk' onClick={refuseResponse}> Odrzuć </button>
+                    </div>
+                        :
+                    null
+                }
             </div>
         </div>
     )

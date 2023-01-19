@@ -59,8 +59,8 @@ const useFetchWithMsal = (msalRequest) => {
                 setIsLoading(true);
 
                 response = await fetch(endpoint, options);
-                // console.log("response = ", response);
-                // console.log("response headers", response.headers)
+                console.log("response = ", response);
+                console.log("response headers", response.headers)
 
                 if (response.status === 200 || response.status === 204) {
                     try {
@@ -103,8 +103,8 @@ const useFetchWithMsal = (msalRequest) => {
                     setIsLoading(true);
     
                     response = await fetch(endpoint, options);
-                    // console.log("response = ", response);
-                    // console.log("response headers", response.headers)
+                    console.log("response = ", response);
+                    console.log("response headers", response.headers)
     
                     if (response.status === 200 || response.status === 204) {
                         try {
@@ -152,8 +152,8 @@ const useFetchWithMsal = (msalRequest) => {
                 setIsLoading(true);
 
                 response = await fetch(endpoint, options);
-                // console.log("response = ", response);
-                // console.log("response headers", response.headers.forEach( (dupa) => {console.log(dupa)}));
+                console.log("response = ", response);
+                console.log("response headers", response.headers.forEach( (dupa) => {console.log(dupa)}));
 
                 if (response.status === 200 || response.status === 204) {
                     try {

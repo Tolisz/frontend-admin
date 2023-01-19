@@ -69,6 +69,7 @@ export const MainPage = ( { isInquiries} ) => {
 		.then( (response) => 
 		{
 			setOffers(response);
+			console.log("DUPA = ", response);
 		})
 		.catch( (e) => 
 		{
