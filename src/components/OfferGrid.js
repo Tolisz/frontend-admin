@@ -9,7 +9,7 @@ const OfferGrid = ({offer}) => {
 	const click_AllInfo = () => 
 	{
 		//window.open(`http://localhost:3000/`);
-		window.open(`http://localhost:3000/details/${offer.requestID}/${offer.responseID}`, "Dupa", "width=800,height=600");
+		window.open(`https://dotnetfrontend-admin.azurewebsites.net/details/${offer.requestID}/${offer.responseID}`, "Dupa", "width=800,height=600");
 	}
 	
 	return (
